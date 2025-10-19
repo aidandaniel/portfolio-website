@@ -1,7 +1,7 @@
 :root{
-    --text-color: #1a1c20;
-    --link-color: #4a76ee;
-    --background-color: #eeeff1;
+    --text-color: #f8f8ff;
+    --link-color: #c71919;
+    --background-color: #121212;
 }
 
 *{
@@ -114,6 +114,7 @@ nav .right a span {
 }
 
 /* SECTIONS 2: SKILLS */
+
 .skills-section {
     padding: 0 50px;    
     margin-bottom: 100px;
@@ -124,7 +125,67 @@ nav .right a span {
     font-size: 35px;
 }
 
+/* SECTIONS 2: SKILLS - CONTAINER AND GRID */
 
+.skills-section > div:nth-child(2) {
+    /* This selects the div with "Lorem ipsum..." placeholder text */
+    text-align: center;
+    max-width: 800px;
+    margin: 20px auto 40px auto;
+    line-height: 1.6;
+}
+
+.skills-section .cells {
+    display: grid;
+    /* Create an auto-filling grid with a minimum column size of 150px */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px; /* Spacing between grid items */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* SECTIONS 2: SKILLS - INDIVIDUAL CELLS */
+
+.skills-section .cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid var(--link-color);
+    border-radius: 10px;
+    background-color: #1e1e1e; /* Use a slightly different background for contrast */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.skills-section .cell:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px #f8f8ff(0, 0, 0, 0.1);
+}
+
+.skills-section .cell img {
+    width: 60px; /* Size for the skill icons/logos */
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.skills-section .cell span {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-color);
+    letter-spacing: 1px;
+}
+
+/* Additional Media Query for the Skills Section */
+@media(max-width: 500px) {
+    .skills-section .cells {
+        /* On very small screens, make columns a bit smaller and centered */
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 20px;
+    }
+}
 
 
 @media(max-width:850px){

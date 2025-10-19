@@ -2,9 +2,7 @@ from PIL import Image
 
 # List your images
 images = [
-    'python-logo-only.webp',
-    'Matlab_Logo.webp',
-    'Github-desktop-logo-symbol.svg.webp'
+    "225996.webp"
 ]
 
 # Resize each to 96x96
