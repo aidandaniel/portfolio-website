@@ -350,9 +350,11 @@ nav .right a span {
 }
 @media(max-width:740px) {
      /*SECTION 2 HERO*/
-     .hero-section .text h2 {
+     .hero-section .text {
         flex-direction: column-reverse;
-        
+        text-align: center;
+
+        padding: 0 30px;
 
     }
     .hero-section .headshot img {
@@ -364,7 +366,7 @@ nav .right a span {
 @media(max-width:600px) {
     /* NAVBAR */
     nav {
-        padding: 0 20px;
+        padding: 0 18px;
     }
     nav .right a span {
     font-size: 22px;
@@ -377,10 +379,13 @@ nav .right a span {
     nav .right a span {
         display: none;
     }
-    /* SECTION 1 */
-    .hero-section {
-        padding: 0 20px;
+
+    .hero-section, .skills-section, .experience-section, .contact-section {
+        padding: 0 15px;
         font-size: 30px;
+
+        margin-bottom: 60px;
+
 
     }
 }
