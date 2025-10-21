@@ -316,15 +316,14 @@ nav .right a span {
 }
 
 .contact-info .info-links a {
-    /* Keep these for general styling */
+    /* general styling */
     display: flex; 
     align-items: center; 
     margin-bottom: 15px; 
     
-    /* FIX: Force the long, unbreakable email string to wrap */
     word-break: break-all;
     
-    /* Fallbacks/alternates */
+    
     overflow-wrap: break-word; 
     -ms-word-break: break-all; 
 }
@@ -362,17 +361,30 @@ nav .right a span {
 }
 @media(max-width:740px) {
      /*SECTION 2 HERO*/
-     .hero-section .text {
-        flex-direction: column-reverse;
+     .hero-section {
+        display: flex; /* Ensure display is flex */
+        flex-direction: column-reverse; 
+        
         text-align: center;
+        padding: 0 30px; /* Adjust padding for mobile */
+        margin-bottom: 50px; 
+     }
+     
+     .hero-section .text {
+        
 
-        padding: 0 30px;
+        padding: 0;
 
     }
     .hero-section .headshot img {
-        width: 300px;
+       justify-content: center;
+    padding: 0 30px;
+}
+    .hero-section .headshot {
         justify-content: center;
+        margin-bottom: 30px;
     }
+    
     .hero-section .headshot img {
         width: 250px;
         height: 250px;
