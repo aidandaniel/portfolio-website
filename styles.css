@@ -315,7 +315,19 @@ nav .right a span {
     margin-left: 10px;
 }
 
-
+.contact-info .info-links a {
+    /* Keep these for general styling */
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 15px; 
+    
+    /* FIX: Force the long, unbreakable email string to wrap */
+    word-break: break-all;
+    
+    /* Fallbacks/alternates */
+    overflow-wrap: break-word; 
+    -ms-word-break: break-all; 
+}
 /* Media Query for Mobile (Stacking form and info) */
 @media(max-width: 768px) {
     .contact-container {
