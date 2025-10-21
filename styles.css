@@ -128,7 +128,7 @@ nav .right a span {
 /* SECTIONS 2: SKILLS - CONTAINER AND GRID */
 
 .skills-section > div:nth-child(2) {
-    /* This selects the div with "Lorem ipsum..." placeholder text */
+    /* This selects skills text  */
     text-align: center;
     max-width: 800px;
     margin: 20px auto 40px auto;
@@ -139,7 +139,7 @@ nav .right a span {
     display: grid;
     /* Create an auto-filling grid with a minimum column size of 150px */
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 30px; /* Spacing between grid items */
+    gap: 30px; /*grid spacing */
     max-width: 1000px;
     margin: 0 auto;
 }
