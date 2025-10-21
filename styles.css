@@ -359,6 +359,11 @@ nav .right a span {
     }
     .hero-section .headshot img {
         width: 300px;
+        justify-content: center;
+    }
+    .hero-section .headshot img {
+        width: 250px; 
+        height: 250px;
     }
 }
 
