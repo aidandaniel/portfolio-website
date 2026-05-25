@@ -871,8 +871,8 @@ body::after {
   content: "";
   background:
     linear-gradient(180deg, rgba(247, 243, 232, 0.36), rgba(8, 8, 8, 0.28)),
-    url("/portfolio-website/vagabond-character-panel.png") center 9% / min(920px, 92vw) auto no-repeat,
-    url("/portfolio-website/moon-header-panel.png") center 82% / min(980px, 96vw) auto no-repeat;
+    url("/vagabond-character-panel.png") center 9% / min(920px, 92vw) auto no-repeat,
+    url("/moon-header-panel.png") center 82% / min(980px, 96vw) auto no-repeat;
   filter: grayscale(1) contrast(1.18);
   opacity: 0.2;
 }
@@ -888,7 +888,7 @@ body::after {
 .reference-bg::after {
   position: absolute;
   content: "";
-  background-image: url("/portfolio-website/vagabond-panel-reference.png");
+  background-image: url("/vagabond-panel-reference.png");
   background-repeat: no-repeat;
   background-size: cover;
   filter: grayscale(1) contrast(1.35);
@@ -900,7 +900,7 @@ body::after {
   bottom: -12vh;
   width: min(42rem, 62vw);
   height: min(54rem, 78vh);
-  background-image: url("/portfolio-website/moon-header-panel.png");
+  background-image: url("/moon-header-panel.png");
   background-position: 50% 50%;
   opacity: 0.2;
   transform: rotate(5deg);
@@ -911,7 +911,7 @@ body::after {
   top: 34vh;
   width: min(36rem, 58vw);
   height: min(45rem, 72vh);
-  background-image: url("/portfolio-website/vagabond-character-panel.png");
+  background-image: url("/vagabond-character-panel.png");
   background-position: 50% 34%;
   opacity: 0.1;
   transform: rotate(-7deg);
@@ -1036,7 +1036,7 @@ main.catalog-page {
   background:
     linear-gradient(180deg, rgba(255, 253, 247, 0.42), rgba(237, 230, 216, 0.64)),
     linear-gradient(90deg, rgba(8, 8, 8, 0.62), transparent 42%, rgba(8, 8, 8, 0.18)),
-    var(--hero-header-image, url("/portfolio-website/aidan-header-background.png")) center center / cover no-repeat;
+    var(--hero-header-image, url("/aidan-header-background.png")) center center / cover no-repeat;
   background-color: #070707;
   background-size: auto, auto, cover;
   border: 1px solid rgba(8, 8, 8, 0.82);
@@ -1217,7 +1217,7 @@ main.catalog-page {
   z-index: 0;
   width: 16rem;
   height: 24rem;
-  background-image: url("/portfolio-website/vagabond-panel-reference.png");
+  background-image: url("/vagabond-panel-reference.png");
   background-size: cover;
   filter: grayscale(1) contrast(1.4);
   opacity: 0.16;
@@ -1569,7 +1569,7 @@ main.catalog-page {
   pointer-events: none;
   content: "";
   background:
-    url("/portfolio-website/vagabond-panel-reference.png") center 16% / 92% auto no-repeat,
+    url("/vagabond-panel-reference.png") center 16% / 92% auto no-repeat,
     radial-gradient(ellipse at 50% 112%, rgba(8, 8, 8, 0.24), transparent 44%);
   filter: grayscale(1) contrast(1.24);
   mix-blend-mode: multiply;
