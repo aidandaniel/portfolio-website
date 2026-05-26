@@ -126,21 +126,19 @@ function HeaderSlideshow() {
           {String(activeIndex + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
         </p>
       </div>
-      <div>
-        <span>Header Slideshow</span>
-        <strong>{slide.caption}</strong>
-      </div>
+      <p className="header-slideshow__caption">{slide.caption}</p>
     </div>
   );
 }
 
 function HeroCatalog() {
   return (
-    <section
-      className="catalog-hero"
-      aria-labelledby="hero-title"
-      style={{ '--hero-header-image': `url("${profile.headerImage}")` }}
-    >
+    <section className="catalog-hero" aria-labelledby="hero-title">
+      <div
+        className="catalog-hero__backdrop"
+        style={{ backgroundImage: `url("${profile.headerImage}")` }}
+        aria-hidden="true"
+      />
       <BirdField />
       <div className="panel-ghost panel-ghost--one" aria-hidden="true" />
       <div className="panel-ghost panel-ghost--two" aria-hidden="true" />
