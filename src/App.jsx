@@ -201,7 +201,6 @@ function EmploymentGlossary() {
       <div className="section-heading">
         <p className="section-kicker">Volume 02 / Employment Glossary</p>
         <h2 id="employment-title">Employment Chapters</h2>
-        <p>Each role is listed like a manga glossary entry: chapter number, title, arc, date, and key pages.</p>
       </div>
 
       <ol className="glossary-list">
