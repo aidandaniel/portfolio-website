@@ -53,11 +53,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   min-width: 320px;
   margin: 0;
+  overflow-x: clip;
   color: var(--ink);
   background:
     radial-gradient(ellipse at 14% 0%, rgba(184, 149, 106, 0.22), transparent 44%),
@@ -906,6 +908,7 @@ body::after {
   display: grid;
   grid-template-columns: minmax(200px, 240px) minmax(0, 1fr);
   min-height: 100svh;
+  min-width: 0;
 }
 
 .volume-sidebar {
@@ -1014,6 +1017,7 @@ main.catalog-page {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
   padding: 12px 0 80px;
+  min-width: 0;
 }
 
 .catalog-hero {
@@ -1851,16 +1855,19 @@ main.catalog-page {
 
 @media (max-width: 1120px) {
   .catalog-hero {
-    --hero-viewport: min(820px, calc(100svh - 32px));
     grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(260px, 1fr);
+    grid-template-rows: auto auto;
     align-items: stretch;
-    height: var(--hero-viewport);
-    max-height: var(--hero-viewport);
+    gap: 16px;
+    height: auto;
+    max-height: none;
+    min-height: 0;
+    overflow: visible;
   }
 
   .catalog-hero .hero-copy {
     max-width: none;
+    align-self: stretch;
   }
 
   .about-panel,
@@ -1870,9 +1877,25 @@ main.catalog-page {
   }
 
   .featured-panel {
-    min-height: 0;
-    height: 100%;
+    align-self: stretch;
+    height: auto;
     max-height: none;
+    min-height: 0;
+  }
+
+  .header-slideshow {
+    height: auto;
+  }
+
+  .header-slideshow__frame {
+    aspect-ratio: 4 / 3;
+    height: auto;
+    min-height: min(52vw, 320px);
+    max-height: 360px;
+  }
+
+  .header-slideshow__frame img {
+    height: 100%;
   }
 
   .shelf-rail {
@@ -1898,12 +1921,16 @@ main.catalog-page {
 }
 
 @media (max-width: 900px) {
-  .catalog-hero {
-    --hero-viewport: min(780px, calc(100svh - 5.5rem));
-  }
-
   .catalog-layout {
     grid-template-columns: 1fr;
+  }
+
+  .about-section,
+  .employment-section,
+  .shelf-section,
+  .contact-section {
+    margin-bottom: 88px;
+    scroll-margin-top: 72px;
   }
 
   .volume-sidebar {
@@ -1956,29 +1983,87 @@ main.catalog-page {
 
 @media (max-width: 720px) {
   main.catalog-page {
-    width: min(100% - 22px, 1380px);
+    width: min(100% - 20px, 1380px);
+    padding: 8px 0 64px;
   }
 
   .catalog-hero {
-    --hero-viewport: min(760px, calc(100svh - 5.5rem));
-    grid-template-rows: auto minmax(220px, 1fr);
-    height: var(--hero-viewport);
-    max-height: var(--hero-viewport);
-    padding: 16px;
+    margin: 6px 0 56px;
+    padding: 14px;
+    box-shadow: 6px 6px 0 rgba(58, 46, 36, 0.16), 0 16px 32px var(--shadow-deep);
+  }
+
+  .catalog-hero .hero-copy {
+    padding: 18px;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.18);
   }
 
   .catalog-hero h1 {
     max-width: none;
-    font-size: clamp(1.9rem, 9vw, 2.75rem);
-    line-height: 1.1;
+    font-size: clamp(1.75rem, 8.5vw, 2.5rem);
+    line-height: 1.12;
   }
 
   .catalog-hero h1::after {
-    margin-top: 14px;
+    margin-top: 12px;
+  }
+
+  .catalog-hero .hero-copy p:not(.section-kicker) {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .catalog-hero .hero-links {
+    margin-top: 16px;
+  }
+
+  .catalog-hero .hero-links a {
+    flex: 1 1 calc(50% - 6px);
+    justify-content: center;
+    min-width: 0;
+    padding: 10px 12px;
+    font-size: 0.82rem;
+  }
+
+  .featured-panel {
+    padding: 10px;
+    box-shadow: 6px 6px 0 rgba(58, 46, 36, 0.2);
+  }
+
+  .header-slideshow__frame {
+    min-height: min(56vw, 280px);
+    max-height: 300px;
+  }
+
+  .header-slideshow__caption {
+    padding: 10px 4px 0;
+    font-size: clamp(0.95rem, 4vw, 1.15rem);
+  }
+
+  .section-heading {
+    margin-bottom: 28px;
+    padding: 0 4px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(1.75rem, 7vw, 2.6rem);
+  }
+
+  .glossary-entry h3 {
+    font-size: clamp(1.45rem, 6.5vw, 2.2rem);
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+    word-break: break-word;
+  }
+
+  .volume-card__body h2 {
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
   }
 
   .shelf-rail {
     grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 0 28px;
   }
 
   .volume-card {
@@ -1987,15 +2072,25 @@ main.catalog-page {
 
   .glossary-entry {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .glossary-entry__number {
-    width: 68px;
+    width: 56px;
+    font-size: 1.5rem;
   }
 
   .about-panel,
   .glossary-entry {
+    padding: 18px;
+  }
+
+  .contact-panel {
     padding: 20px;
+  }
+
+  .book-reader {
+    margin: 24px 0 80px;
   }
 
   .book-reader__header {
@@ -2010,11 +2105,69 @@ main.catalog-page {
 
   .book-page {
     min-height: auto;
-    padding: 24px;
-    gap: 16px;
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .book-page h2 {
+    font-size: clamp(1.45rem, 6vw, 2rem);
   }
 
   .book-project-image {
     max-height: none;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 480px) {
+  main.catalog-page {
+    width: min(100% - 16px, 1380px);
+  }
+
+  .volume-sidebar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .volume-sidebar__brand {
+    width: 100%;
+  }
+
+  .volume-sidebar__nav {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .volume-sidebar__nav a {
+    width: 100%;
+    border-left: 3px solid transparent;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .volume-sidebar__nav a:hover,
+  .volume-sidebar__nav a:focus-visible {
+    border-bottom-color: var(--line-strong);
+  }
+
+  .catalog-hero .hero-links a {
+    flex: 1 1 100%;
+  }
+
+  .header-slideshow__arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.35rem;
+  }
+
+  .header-slideshow__arrow--prev {
+    left: 8px;
+  }
+
+  .header-slideshow__arrow--next {
+    right: 8px;
   }
 }
